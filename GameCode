@@ -1,0 +1,680 @@
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.Timer;
+
+public class Game extends JPanel implements ActionListener
+{
+
+    //----- Attributes
+   int XPos[];
+   int YPos[];
+   Timer tim;
+   int limit=0;
+   int count = 0;
+   int delay=10;
+   JProgressBar pberror;
+   JButton Stop;
+   
+   int i=0,j=0;
+   
+   JButton word;
+   
+   JButton jb4;
+   
+   
+   
+   JButton b1;
+   JButton b2;
+   JButton b3;
+   JButton b4;
+   JButton b5;
+   JButton b6;
+   JButton b7;
+   JButton b8;
+   JButton b9;
+   JButton b10;
+   JButton b11;
+   JButton b12;
+   JButton b13;
+   JButton b14;
+   JButton b15;
+   JButton b16;
+   JButton b17;
+   JButton b18;
+   JButton b19;
+   JButton b20;
+   JButton b21;
+   JButton b22;
+   JButton b23;
+   JButton b24;
+   JButton b25;
+   JButton b26;
+   //private letter object;
+   int x1=10,y1=10;
+   int x2=60,y2=10;
+   int x3=120,y3=10;
+   int x4=500,y4=120;
+   int x5=630,y5=150;
+   
+   
+   
+    //----- Constructor
+    public Game()
+    {
+       
+            super();
+            setLayout(null);
+            pberror= new JProgressBar(0,100);
+            jb4=new JButton("Next Level");
+            //add(jb4);
+            jb4.setBounds(350,350,150,50);
+            
+            Stop = new JButton("Finish");
+        	Stop.addActionListener(this); 	
+        	
+            b1=new JButton("A");
+            b2=new JButton("B");
+            b3=new JButton("C");
+            b4=new JButton("D");
+            b5=new JButton("E");
+            b6=new JButton("F");
+            b7=new JButton("G");
+            b8=new JButton("H");
+            b9=new JButton("I");
+            b10=new JButton("J");
+            b11=new JButton("K");
+            b12=new JButton("L");
+            b13=new JButton("M");
+            b14=new JButton("N");
+            b15=new JButton("O");
+            b16=new JButton("P");
+            b17=new JButton("Q");
+            b18=new JButton("R");
+            b19=new JButton("S");
+            b20=new JButton("T");
+            b21=new JButton("U");
+            b22=new JButton("V");
+            b23=new JButton("W");
+            b24=new JButton("X");
+            b25=new JButton("Y");
+            b26=new JButton("Z");
+            
+        	add(Stop);
+        	
+            word = new JButton("SOUTHERN");
+            
+         
+            
+            add(word);
+            
+            b1.setBounds(x1,y1,50,50);
+            b2.setBounds(x2,y2,50,50);
+            b3.setBounds(x3,y3,50,50);
+            b4.setBounds(x4,y4,50,50);
+            b5.setBounds(x5,y5,50,50);
+            b6.setBounds(550,180,50,50);
+            b7.setBounds(485,210,50,50);
+            b8.setBounds(150,240,50,50);
+            b9.setBounds(300,270,50,50);
+            b10.setBounds(380,300,50,50);
+            b11.setBounds(320,330,50,50);
+            b12.setBounds(200,360,50,50);
+            b13.setBounds(100,390,50,50);
+            b14.setBounds(700,410,50,50);
+            b15.setBounds(600,440,50,50);
+            b16.setBounds(800,470,50,50);
+            b17.setBounds(900,500,50,50);
+            b18.setBounds(650,530,50,50);
+            b19.setBounds(490,560,50,50);
+            b20.setBounds(0,590,50,50);
+            b21.setBounds(345,580,50,50);
+            b22.setBounds(220,570,50,50);
+            b23.setBounds(950,340,50,50);
+            b24.setBounds(240,265,50,50);
+            b25.setBounds(250,480,50,50);
+            b26.setBounds(850,600,50,50);
+            
+            add(b1);
+            add(b2);
+            add(b3);
+            add(b4);
+            add(b5);
+            add(b6);
+            add(b7);
+            add(b8);
+            add(b9);
+            add(b10);
+            add(b11);
+            add(b12);
+            add(b13);
+            add(b14);
+            add(b15);
+            add(b16);
+            add(b17);
+            add(b18);
+            add(b19);
+            add(b20);
+            add(b21);
+            add(b22);
+            add(b23);
+            add(b24);
+            add(b25);
+            add(b26);
+            
+            word.setBounds(400,800,200,50);
+            Stop.setBounds(0,800,150,50);
+            
+            b1.addActionListener(this);
+            b2.addActionListener(this);
+            b3.addActionListener(this);
+            b4.addActionListener(this);
+            b5.addActionListener(this);
+            b6.addActionListener(this);
+            b7.addActionListener(this);
+            b8.addActionListener(this);
+            b9.addActionListener(this);
+            b10.addActionListener(this);
+            b11.addActionListener(this);
+            b12.addActionListener(this);
+            b13.addActionListener(this);
+            b14.addActionListener(this);
+            b15.addActionListener(this);
+            b16.addActionListener(this);
+            b17.addActionListener(this);
+            b18.addActionListener(this);
+            b19.addActionListener(this);
+            b20.addActionListener(this);
+            b21.addActionListener(this);
+            b22.addActionListener(this);
+            b23.addActionListener(this);
+            b24.addActionListener(this);
+            b25.addActionListener(this);
+            b26.addActionListener(this);
+            
+            
+            delay = 1000; // milliseconds
+      		tim = new Timer(delay, this);		
+
+           
+    } // end constructor
+           
+    //----- Methods
+    public void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+        Image myImage = Toolkit.getDefaultToolkit().getImage("images/newbackground.jpg");
+        g.drawImage(myImage, 0, 0, 1000, 960, this);
+    }
+    
+
+    
+    
+    
+    
+    
+    public void actionPerformed(ActionEvent event)//Start of letters falling
+    {
+    	
+    	Object obj=event.getSource();
+
+    	
+    	
+    	if(obj == b1)
+    	{
+    	// check if is the right letter
+    	String letter = b1.getText();
+    	String word1 = word.getText();
+
+    	if(word1.indexOf(letter) >= 0)
+    	{
+    		remove(b1);	
+    	}
+
+    		
+    	validate();
+    	repaint();
+    	}
+    	if(obj == b2)
+    	{
+    		// check if is the right letter
+    		String letter = b2.getText();
+    		String word1 = word.getText();
+    		
+    		if(word1.indexOf(letter) >= 0)
+    		{
+    			remove(b2);	
+    		}
+    		
+    			
+    		validate();
+    		repaint();
+    	}
+    	if(obj == b3)
+    	{
+    		// check if is the right letter
+    		String letter = b3.getText();
+    		String word1 = word.getText();
+    		
+    		if(word1.indexOf(letter) >= 0)
+    		{
+    			remove(b3);	
+    		}
+    		
+    			
+    		validate();
+    		repaint();
+    	}
+
+	if(obj == b4)
+	{
+		// check if is the right letter
+		String letter = b4.getText();
+		String word1 = word.getText();
+		
+		if(word1.indexOf(letter) >= 0)
+		{
+			remove(b4);	
+		}
+		
+			
+		validate();
+		repaint();
+	}
+	if(obj == b5)
+	{
+		// check if is the right letter
+		String letter = b5.getText();
+		String word1 = word.getText();
+		
+		if(word1.indexOf(letter) >= 0)
+		{
+			remove(b5);	
+		}
+		
+			
+		validate();
+		repaint();
+	}
+
+    
+		if(obj == b6)
+{
+	// check if is the right letter
+	String letter = b6.getText();
+	String word1 = word.getText();
+	
+	if(word1.indexOf(letter) >= 0)
+	{
+		remove(b6);	
+	}
+	
+		
+	validate();
+	repaint();
+}
+if(obj == b7)
+{
+	// check if is the right letter
+	String letter = b7.getText();
+	String word1 = word.getText();
+	
+	if(word1.indexOf(letter) >= 0)
+	{
+		remove(b7);	
+	}
+	
+		
+	validate();
+	repaint();
+}
+
+if(obj == b8)
+{
+// check if is the right letter
+String letter = b8.getText();
+String word1 = word.getText();
+
+if(word1.indexOf(letter) >= 0)
+{
+	remove(b8);	
+}
+
+	
+validate();
+repaint();
+}
+if(obj == b9)
+{
+// check if is the right letter
+String letter = b9.getText();
+String word1 = word.getText();
+
+if(word1.indexOf(letter) >= 0)
+{
+	remove(b9);	
+}
+
+	
+validate();
+repaint();
+}
+
+if(obj == b10)
+{
+	// check if is the right letter
+	String letter = b10.getText();
+	String word1 = word.getText();
+	
+	if(word1.indexOf(letter) >= 0)
+	{
+		remove(b10);	
+	}
+	
+		
+	validate();
+	repaint();
+}
+if(obj == b11)
+{
+	// check if is the right letter
+	String letter = b11.getText();
+	String word1 = word.getText();
+	
+	if(word1.indexOf(letter) >= 0)
+	{
+		remove(b11);	
+	}
+	
+		
+	validate();
+	repaint();
+}
+
+	if(obj == b12)
+{
+// check if is the right letter
+String letter = b12.getText();
+String word1 = word.getText();
+
+if(word1.indexOf(letter) >= 0)
+{
+	remove(b12);	
+}
+
+	
+validate();
+repaint();
+}
+if(obj == b13)
+{
+// check if is the right letter
+String letter = b13.getText();
+String word1 = word.getText();
+
+if(word1.indexOf(letter) >= 0)
+{
+	remove(b13);	
+}
+
+	
+validate();
+repaint();
+}
+
+ 
+if(obj == b14)
+{
+	// check if is the right letter
+	String letter = b14.getText();
+	String word1 = word.getText();
+	
+	if(word1.indexOf(letter) >= 0)
+	{
+		remove(b14);	
+	}
+	
+		
+	validate();
+	repaint();
+}
+if(obj == b15)
+{
+	// check if is the right letter
+	String letter = b15.getText();
+	String word1 = word.getText();
+	
+	if(word1.indexOf(letter) >= 0)
+	{
+		remove(15);	
+	}
+	
+		
+	validate();
+	repaint();
+}
+
+if(obj == b16)
+{
+// check if is the right letter
+String letter = b16.getText();
+String word1 = word.getText();
+
+if(word1.indexOf(letter) >= 0)
+{
+	remove(b16);	
+}
+
+	
+validate();
+repaint();
+}
+if(obj == b17)
+{
+// check if is the right letter
+String letter = b17.getText();
+String word1 = word.getText();
+
+if(word1.indexOf(letter) >= 0)
+{
+	remove(b17);	
+}
+
+	
+validate();
+repaint();
+}
+
+if(obj == b18)
+{
+	// check if is the right letter
+	String letter = b18.getText();
+	String word1 = word.getText();
+	
+	if(word1.indexOf(letter) >= 0)
+	{
+		remove(b18);	
+	}
+	
+		
+	validate();
+	repaint();
+}
+if(obj == b19)
+{
+	// check if is the right letter
+	String letter = b19.getText();
+	String word1 = word.getText();
+	
+	if(word1.indexOf(letter) >= 0)
+	{
+		remove(b19);	
+	}
+	
+		
+	validate();
+	repaint();
+}
+
+if(obj == b20)
+{
+// check if is the right letter
+String letter = b20.getText();
+String word1 = word.getText();
+
+if(word1.indexOf(letter) >= 0)
+{
+	remove(b20);	
+}
+
+	
+validate();
+repaint();
+}
+if(obj == b21)
+{
+// check if is the right letter
+String letter = b21.getText();
+String word1 = word.getText();
+
+if(word1.indexOf(letter) >= 0)
+{
+	remove(b21);	
+}
+
+	
+validate();
+repaint();
+}
+
+if(obj == b22)
+{
+	// check if is the right letter
+	String letter = b22.getText();
+	String word1 = word.getText();
+	
+	if(word1.indexOf(letter) >= 0)
+	{
+		remove(b22);	
+	}
+	
+		
+	validate();
+	repaint();
+}
+if(obj == b23)
+{
+	// check if is the right letter
+	String letter = b23.getText();
+	String word1 = word.getText();
+	
+	if(word1.indexOf(letter) >= 0)
+	{
+		remove(b23);	
+	}
+	
+		
+	validate();
+	repaint();
+}
+
+if(obj == b24)
+{
+// check if is the right letter
+String letter = b24.getText();
+String word1 = word.getText();
+
+if(word1.indexOf(letter) >= 0)
+{
+	remove(b24);	
+}
+
+	
+validate();
+repaint();
+}
+if(obj == b25)
+{
+// check if is the right letter
+String letter = b25.getText();
+String word1 = word.getText();
+
+if(word1.indexOf(letter) >= 0)
+{
+	remove(b25);	
+}
+
+	
+validate();
+repaint();
+}
+
+if(obj == b26)
+{
+// check if is the right letter
+String letter = b26.getText();
+String word1 = word.getText();
+
+if(word1.indexOf(letter) >= 0)
+{
+	remove(b26);	
+}
+
+	
+validate();
+repaint();
+}
+
+    	
+    	
+    	
+    	if(obj==tim)
+    	{
+
+    		y1+=1;
+    		y2+=5;
+    		y3+=2;
+    		
+    		System.out.println(y1);
+    		b1.setLocation(x1,y1);
+    		b2.setLocation(x2,y2);
+    		b3.setLocation(x3,y3);
+    		
+    		validate();
+    		repaint();
+    	}
+    	if(y1 >=this.getHeight())
+    	{
+    		remove(b1);
+    		validate();
+    		repaint();
+    	}
+    	if(y2>=this.getHeight())
+    	{
+    		remove(b2);
+    		validate();
+    		repaint();
+    	}
+    	if(y3>=this.getHeight())
+    	{
+    		remove(b3);
+    		validate();
+    		repaint();
+    	}
+    	
+ 	
+    	
+    	
+    }
+    
+    
+    
+      
+      
+}
